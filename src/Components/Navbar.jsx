@@ -91,7 +91,11 @@ const Navbar = () => {
               </a>
               {/* Dropdown Menu */}
               {showServices && (
-                <div className={`absolute z-50 ${darkMode ? "bg-white" : ""}`}>
+                <div
+                  className={`absolute z-50 mt-[-10px]${
+                    darkMode ? "bg-white" : ""
+                  }`}
+                >
                   <DropdownMenu items={services} />
                 </div>
               )}
@@ -108,7 +112,11 @@ const Navbar = () => {
               </a>
               {/* Dropdown Menu */}
               {showContacts && (
-                <div className={`absolute z-50 ${darkMode ? "bg-white" : ""}`}>
+                <div
+                  className={`absolute z-50 mt-[-10px]${
+                    darkMode ? "bg-white" : ""
+                  }`}
+                >
                   <DropdownMenu items={contacts} />
                 </div>
               )}
@@ -169,7 +177,11 @@ const Navbar = () => {
               </a>
               {/* Dropdown Menu */}
               {showServices && (
-                <div className={`absolute z-50 ${darkMode ? "bg-white" : ""}`}>
+                <div
+                  className={`absolute z-50 mt-[-10px] ${
+                    darkMode ? "bg-white" : ""
+                  }`}
+                >
                   <DropdownMenu items={services} />
                 </div>
               )}
@@ -180,7 +192,11 @@ const Navbar = () => {
               </a>
               {/* Dropdown Menu */}
               {showContacts && (
-                <div className={`absolute z-50 ${darkMode ? "bg-white" : ""}`}>
+                <div
+                  className={`absolute z-50 mt-[-10px] ml-[200px] ${
+                    darkMode ? "bg-white" : ""
+                  }`}
+                >
                   <DropdownMenu items={contacts} />
                 </div>
               )}
