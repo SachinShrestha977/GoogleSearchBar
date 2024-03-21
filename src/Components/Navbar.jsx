@@ -1,7 +1,20 @@
 import React, { useContext, useState } from "react";
-import DropdownMenu from "./DropdownMenu";
-import ThemeToggle from "../ThemeToggle";
+import { BiSupport } from "react-icons/bi";
+import { FaHandsHelping } from "react-icons/fa";
+import { FaAppStore } from "react-icons/fa6";
+import { GrCloudSoftware } from "react-icons/gr";
+import { IoMail } from "react-icons/io5";
+import { RiFilePaperLine } from "react-icons/ri";
+import { GiLifeSupport } from "react-icons/gi";
+import {
+  SiBmcsoftware,
+  SiMarketo,
+  SiSpringsecurity,
+  SiWebmoney,
+} from "react-icons/si";
 import { ThemeContext } from "../ThemeContext";
+import ThemeToggle from "../ThemeToggle";
+import DropdownMenu from "./DropdownMenu";
 
 const Navbar = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -9,34 +22,68 @@ const Navbar = () => {
   const [showServices, setShowServices] = useState(false);
   const showService = () => setShowServices(true);
   const hideServices = () => setShowServices(false);
-  const [showContacts, setShowContacts] = useState(false);
-  const showContact = () => setShowContacts(true);
-  const hideContact = () => setShowContacts(false);
+  const [showCompanys, setShowCompanys] = useState(false);
+  const showCompany = () => setShowCompanys(true);
+  const hideCompany = () => setShowCompanys(false);
 
   const services = [
-    "Design",
-    "Develop",
-    "Secure",
-    "Scale",
-    "Innovate",
-    "Transform",
-    "Automate",
-    "Analyze",
-    "Cloud",
-    "Support",
-    "Train",
-    "Consult",
-    "Host",
+    {
+      name: "Digital Marketing",
+      icon: <SiMarketo className="text-2xl text-blue-700" />,
+      description: "Lorem ipsum dolor sit amet, consectetur",
+    },
+    {
+      name: "Software Development",
+      icon: <SiBmcsoftware className="text-2xl text-blue-700" />,
+      description: "Lorem ipsum dolor sit amet, consectetur",
+    },
+    {
+      name: "Web Development",
+      icon: <SiWebmoney className="text-2xl text-blue-700" />,
+      description: "Lorem ipsum dolor sit amet, consectetur",
+    },
+    {
+      name: "App Development",
+      icon: <FaAppStore className="text-2xl text-blue-700" />,
+      description: "Lorem ipsum dolor sit amet, consectetur",
+    },
+    {
+      name: "Cloud Computing Services",
+      icon: <GrCloudSoftware className="text-2xl text-blue-700" />,
+      description: "Lorem ipsum dolor sit amet, consectetur",
+    },
+    {
+      name: "Cybersecurity Services",
+      icon: <SiSpringsecurity className="text-2xl text-blue-700" />,
+      description: "Lorem ipsum dolor sit amet, consectetur",
+    },
+    {
+      name: "IT Support and Maintenance",
+      icon: <BiSupport className="text-2xl text-blue-700" />,
+      description: "Lorem ipsum dolor sit amet, consectetur",
+    },
+    {
+      name: "IT Consulting",
+      icon: <FaHandsHelping className="text-2xl text-blue-700" />,
+      description: "Lorem ipsum dolor sit amet, consectetur",
+    },
   ];
-  const contacts = [
-    "Contact 1",
-    "Contact 2",
-    "Contact 3",
-    "Contact 4",
-    "Contact 5",
-    "Contact 6",
-    "Contact 7",
-    "Contact 8",
+  const company = [
+    {
+      name: "Contact Us",
+      icon: <IoMail className="text-2xl text-blue-700" />,
+      description: "Want to Reach Out? It's here",
+    },
+    {
+      name: "Blog",
+      icon: <RiFilePaperLine className="text-2xl text-blue-700" />,
+      description: "Stay connected for our latest news",
+    },
+    {
+      name: "Support Us",
+      icon: <GiLifeSupport className="text-2xl text-blue-700" />,
+      description: "Want to Support? It's here",
+    },
   ];
 
   const toggleMenu = () => {
@@ -84,40 +131,68 @@ const Navbar = () => {
                 href="#"
                 className={`${
                   darkMode ? "text-gray-300" : "text-black"
-                } hover:text-gray-400`}
+                } hover:text-gray-400 flex items-center`}
                 onMouseEnter={showService}
               >
                 Services
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-4 h-4 ml-1"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
               </a>
               {/* Dropdown Menu */}
               {showServices && (
                 <div
                   className={`absolute z-50 mt-[-10px]${
-                    darkMode ? "bg-white" : ""
+                    darkMode ? "bg-white mt-[-10px]" : ""
                   }`}
                 >
                   <DropdownMenu items={services} />
                 </div>
               )}
             </div>
-            <div className="relative mx-4" onMouseLeave={hideContact}>
+            <div className="relative mx-4" onMouseLeave={hideCompany}>
               <a
                 href="#"
                 className={`${
                   darkMode ? "text-gray-300" : "text-black"
-                } hover:text-gray-400`}
-                onMouseEnter={showContact}
+                } hover:text-gray-400 flex items-center`}
+                onMouseEnter={showCompany}
               >
-                Contact
+                Company
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-4 h-4 ml-1"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
               </a>
               {/* Dropdown Menu */}
-              {showContacts && (
+              {showCompanys && (
                 <div
                   className={`absolute z-50 mt-[-10px]${
-                    darkMode ? "bg-white" : ""
+                    darkMode ? "bg-white mt-[-10px]" : ""
                   }`}
                 >
-                  <DropdownMenu items={contacts} />
+                  <DropdownMenu items={company} />
                 </div>
               )}
             </div>
@@ -172,8 +247,27 @@ const Navbar = () => {
               About
             </a>
             <div className="relative" onMouseLeave={hideServices}>
-              <a href="#" className="block py-2" onMouseEnter={showService}>
-                Services
+              <a
+                href="#"
+                className="inline-flex items-center py-2"
+                onMouseEnter={showService}
+              >
+                <span className="ml-5">Services</span>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-4 h-4 ml-1"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
               </a>
               {/* Dropdown Menu */}
               {showServices && (
@@ -186,18 +280,37 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <div className="relative" onMouseLeave={hideContact}>
-              <a href="#" className="block py-2" onMouseEnter={showContact}>
-                Contact
+            <div className="relative" onMouseLeave={hideCompany}>
+              <a
+                href="#"
+                className="inline-flex items-center py-2"
+                onMouseEnter={showCompany}
+              >
+                <span className="ml-5">Company</span>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-4 h-4 ml-1"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
               </a>
               {/* Dropdown Menu */}
-              {showContacts && (
+              {showCompanys && (
                 <div
                   className={`absolute z-50 mt-[-10px] ml-[200px] ${
                     darkMode ? "bg-white" : ""
                   }`}
                 >
-                  <DropdownMenu items={contacts} />
+                  <DropdownMenu items={company} />
                 </div>
               )}
             </div>
